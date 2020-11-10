@@ -30,7 +30,6 @@ function LoggedIn() {
 
   useEffect(() => {facade.fetchData().then(data=> {
     setDataFromServer(data.msg) ;
-    console.log(data)
   }); }, [])
 
   return (
