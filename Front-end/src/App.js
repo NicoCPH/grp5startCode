@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react"
 import Login from "./components/login"
+import NavBar from "./components/navBar"
+
 
 function App() {
- 
+
 
   return (
     <div>
-      <Login/>
+      <NavBar />
+      <Login />
     </div>
   )
 
