@@ -28,9 +28,11 @@ function LogIn({ login }) {
 function LoggedIn() {
   const [dataFromServer, setDataFromServer] = useState("Loading...")
 
-  useEffect(() => {facade.fetchData().then(data=> {
-    setDataFromServer(data.msg) ;
-  }); }, [])
+  useEffect(() => {
+    facade.fetchData().then(data => {
+      setDataFromServer(data.msg);
+    });
+  }, [])
 
   return (
     <div>
