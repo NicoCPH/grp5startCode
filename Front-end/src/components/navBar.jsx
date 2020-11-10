@@ -9,12 +9,9 @@ import {
   useRouteMatch,
   Prompt,
 } from "react-router-dom";
-
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import { LinkContainer } from "react-router-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const About = () => <span>About</span>;
 
@@ -22,41 +19,27 @@ const Users = () => <span>Users</span>;
 
 const NavBarIO = () => {
   return (
-    <MemoryRouter>
-      <Container className="p-3">
-        <Jumbotron>
-          <h1 className="header">Welcome To React-Bootstrap</h1>
-          <h2>
-            Current Page is{" "}
-            <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/users">
-                <Users />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </h2>
-          <h2>
-            Navigate to{" "}
-            <ButtonToolbar className="custom-btn-toolbar">
-              <LinkContainer to="/">
-                <Button>Home</Button>
-              </LinkContainer>
-              <LinkContainer to="/about">
-                <Button>About</Button>
-              </LinkContainer>
-              <LinkContainer to="/users">
-                <Button>Users</Button>
-              </LinkContainer>
-            </ButtonToolbar>
-          </h2>
-        </Jumbotron>
-      </Container>
-    </MemoryRouter>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#link">Link</Nav.Link>
+          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+              Another action
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Separated link
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
