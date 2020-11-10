@@ -22,7 +22,7 @@ const Header = () => {
       <div>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand as={Link} to="/">
-            React-Bootstrap
+            CA-3 Gruppe 5
           </Navbar.Brand>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -51,6 +51,7 @@ const Header = () => {
     </>
   );
 };
+
 const Content = () => {
   return (
     <Switch>
@@ -72,6 +73,7 @@ const Readme = () => {
 const Home = () => {
   return <Login />;
 };
+
 const NoMatch = () => {
   return <p>There was no match</p>;
 };
