@@ -67,17 +67,3 @@ public class DemoResource {
         return "{\"msg\": \"Hello to (admin) User: " + thisuser + "\"}";
     }
     
-   @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("navigate")
-    public String navigate() {      
-       if (securityContext.isUserInRole("admin")) {
-            System.out.println("Admin");
-           getFromAdmin();
-       }if(securityContext.isUserInRole("user")){
-            System.out.println("user");
-           getFromUser();
-        }
-         return "{\"msg\": \"Rolle ikke genkendt\"}";
-    }
-}
