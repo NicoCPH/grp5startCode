@@ -1,82 +1,79 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-  useParams,
-  useRouteMatch,
-  Prompt,
-} from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-
-const About = () => <span>About</span>;
-
-const Users = () => <span>Users</span>;
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Navbar, Nav, NavItem, NavDropdown } from "react-bootstrap";
+import Login from "./login";
 
 const NavBarIO = () => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#link">Link</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      <Router>
+        <Header />
+        <div>
+          <Content />
+        </div>
+      </Router>
+    </>
   );
 };
 
 const Header = () => {
   return (
     <>
-      <NavLink exact activeClassName="active" to="/">
-        Home
-      </NavLink>
-      <NavLink activeClassName="active" to="/">
-        Products
-      </NavLink>
-      <NavLink activeClassName="active" to="/">
-        Add Book
-      </NavLink>
+      <div>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand as={Link} to="/">
+            React-Bootstrap
+          </Navbar.Brand>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <NavItem href="/">
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
+              </NavItem>
+              <NavItem href="/Readme">
+                <Nav.Link as={Link} to="/Readme">
+                  Readme
+                </Nav.Link>
+              </NavItem>
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item as={Link} to="/">
+                  Home
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/Readme">
+                  Readme
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     </>
   );
 };
-const Content = (props) => {
+const Content = () => {
   return (
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/"></Route>
-      <Route path="/"></Route>
-      <Route path="*">
-        <NoMatch />
-      </Route>
+      <Route exact path="/" component={Home} />
+      <Route path="/Readme" component={Readme} />
+      <Route path="*" component={NoMatch} />
     </Switch>
   );
 };
 
+const Readme = () => {
+  return (
+    <>
+      <p>Hejsa readme</p>
+    </>
+  );
+};
+
 const Home = () => {
-  return <h2>Home</h2>;
+  return <Login />;
 };
 const NoMatch = () => {
   return <p>There was no match</p>;
 };
+
 export default NavBarIO;
