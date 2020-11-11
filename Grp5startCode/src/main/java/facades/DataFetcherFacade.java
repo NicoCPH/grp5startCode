@@ -8,7 +8,7 @@ package facades;
 import com.google.gson.Gson;
 import dtos.BoredDTO;
 import dtos.CatFactsDTO;
-import dtos.KanyeQuotesDTO;
+import dtos.SpaceDTO;
 import dtos.TrumpQuotesDTO;
 import java.io.IOException;
 import utils.HttpUtils;
@@ -41,13 +41,13 @@ public class DataFetcherFacade {
         return catFactsDTO;
     }
     
-    public KanyeQuotesDTO getKanyeQuotesDTO() throws IOException {
+    public SpaceDTO getSpaceDTO() throws IOException {
 
         Gson gson = new Gson();
-        String jasonString = HttpUtils.fetchData("https://api.kanye.rest/");
-        KanyeQuotesDTO kanyeQuotesDTO = gson.fromJson(jasonString, KanyeQuotesDTO.class);
+        String jasonString = HttpUtils.fetchData("http://api.open-notify.org/astros.json");
+        SpaceDTO spaceDTO = gson.fromJson(jasonString, SpaceDTO.class);
 
-        return kanyeQuotesDTO;
+        return spaceDTO;
     }
     
     public TrumpQuotesDTO getTrumpQuotesDTO() throws IOException {

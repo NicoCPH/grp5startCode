@@ -10,29 +10,20 @@ package dtos;
  * @author GRP 5
  */
 public class DailyDTO {
-    
+
     String boredActivity;
     String boredType;
     String boredParticipants;
     String catMessage;
-    String kanyeMessage;
+    String spaceNumber;
     String trumpMessage;
 
-//    public DailyDTO(BoredDTO b, CatFactsDTO c, KanyeQuotesDTO k, TrumpQuotesDTO t) {
-//        this.boredActivity = b.activity;
-//        this.boredType = b.type;
-//        this.boredParticipants = b.participants;
-//        this.catMessage = c.getFact();
-//        this.kanyeMessage = k.getQuote();
-//        this.trumpMessage = t.getMessage();
-//    }
-    
-    public DailyDTO(BoredDTO b, CatFactsDTO c, TrumpQuotesDTO t) {
+    public DailyDTO(BoredDTO b, CatFactsDTO c, SpaceDTO s, TrumpQuotesDTO t) {
         this.boredActivity = b.activity;
         this.boredType = b.type;
         this.boredParticipants = b.participants;
         this.catMessage = c.getFact();
-        this.kanyeMessage = "Kanye";
+        this.spaceNumber = s.getNumber();
         this.trumpMessage = t.getMessage();
     }
 
@@ -68,12 +59,12 @@ public class DailyDTO {
         this.catMessage = catMessage;
     }
 
-    public String getKanyeMessage() {
-        return kanyeMessage;
+    public String getSpaceNumber() {
+        return spaceNumber;
     }
 
-    public void setKanyeMessage(String kanyeMessage) {
-        this.kanyeMessage = kanyeMessage;
+    public void setSpaceNumber(String spaceNumber) {
+        this.spaceNumber = spaceNumber;
     }
 
     public String getTrumpMessage() {
@@ -83,9 +74,5 @@ public class DailyDTO {
     public void setTrumpMessage(String trumpMessage) {
         this.trumpMessage = trumpMessage;
     }
-    
-    
-    
-    
-    
+
 }

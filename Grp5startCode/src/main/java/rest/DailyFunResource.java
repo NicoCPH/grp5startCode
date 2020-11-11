@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
 import dtos.BoredDTO;
 import dtos.CatFactsDTO;
 import dtos.DailyDTO;
-import dtos.KanyeQuotesDTO;
+import dtos.SpaceDTO;
 import dtos.TrumpQuotesDTO;
 import facades.DataFetcherFacade;
 import java.io.IOException;
@@ -44,11 +44,10 @@ public class DailyFunResource {
 
         BoredDTO boredDTO = FACADE.getBoredDTO();
         CatFactsDTO catFactsDTO = FACADE.getCatFactsDTO();
-        //KanyeQuotesDTO kanyeQuotesDTO = FACADE.getKanyeQuotesDTO();        
+        SpaceDTO spaceDTO = FACADE.getSpaceDTO();        
         TrumpQuotesDTO trumpQuotesDTO  = FACADE.getTrumpQuotesDTO();      
         
-        //DailyDTO dailyDTO = new DailyDTO(boredDTO, catFactsDTO, kanyeQuotesDTO, trumpQuotesDTO);
-            DailyDTO dailyDTO = new DailyDTO(boredDTO, catFactsDTO, trumpQuotesDTO);
+        DailyDTO dailyDTO = new DailyDTO(boredDTO, catFactsDTO, spaceDTO, trumpQuotesDTO);
         String daily = GSON.toJson(dailyDTO);
         return daily;
     }

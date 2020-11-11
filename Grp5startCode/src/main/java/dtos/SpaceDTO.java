@@ -9,20 +9,20 @@ package dtos;
  *
  * @author GRP 5
  */
-public class KanyeQuotesDTO {
+public class SpaceDTO {
 
-    String quote;
+    String number;
 
-    public KanyeQuotesDTO(String quote) {
-        this.quote = quote;
+    public SpaceDTO(String number) {
+        this.number = number;
     }
 
-    public String getQuote() {
-        return quote;
+    public String getNumber() {
+        return number;
     }
 
-    public void setQuote(String quote) {
-        this.quote = quote;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
 }
