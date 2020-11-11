@@ -1,8 +1,8 @@
 import jwt_decode from "jwt-decode";
+import { Site } from "./../sites"
 
 
-
-const URL = "http://localhost:8080/jpareststarter";
+const URL = Site;
 
 function handleHttpErrors(res) {
     if (!res.ok) {
@@ -87,7 +87,8 @@ function ApiFacade() {
         login,
         logout,
         fetchData,
-        getUserName
+        getUserName,
+        getRoles
     }
 }
 const facade = ApiFacade();

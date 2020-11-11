@@ -1,4 +1,7 @@
+export const Site = "http://localhost:8080/jpareststarter";
 
-export const kanyeURL = "https://api.kanye.rest/";
+export const AdminUrlUserCount = "http://localhost:8080/jpareststarter/api/admin/userCount";
 
-export const katteURL = "https://catfact.ninja/fact";
+export const UserUrlUserCount = "http://localhost:8080/jpareststarter/api/user/userCount"
+
+export const DailyFunUrl = "http://localhost:8080/jpareststarter/api/dailyfun";

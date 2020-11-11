@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { DailyFunUrl } from "./../sites";
 
-const url = "http://localhost:8080/jpareststarter/api/dailyfun";
+const url = DailyFunUrl;
 
 const DailyFun = () => {
   const [dailyFun, setDailyFun] = useState({});

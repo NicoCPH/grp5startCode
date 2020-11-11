@@ -6,6 +6,9 @@ import DailyFun from "./dailyFun";
 import Home from "./home";
 import Readme from "./readMe";
 import facade from "./apiFacade";
+import ValidateRoleSite from "./validateRoleSite";
+import UserSite from "./userSite";
+import AdminSite from "./adminSite";
 
 const NavBarIO = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -47,6 +50,7 @@ const Header = (props) => {
                   DailyFun
                 </Nav.Link>
               </NavItem>
+              <ValidateRoleSite loggedIn={props.loggedIn} />
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/">
                   Home
@@ -76,6 +80,8 @@ const Content = (props) => {
       <Route exact path="/" component={Home} />
       <Route path="/Readme" component={Readme} />
       <Route path="/DailyFun" component={DailyFun} />
+      <Route path="/AdminSite" component={AdminSite} />
+      <Route path="/UserSite" component={UserSite} />
       <Route path="/Login">
         <Login setLoggedIn={props.setLoggedIn} loggedIn={props.loggedIn} />
       </Route>
