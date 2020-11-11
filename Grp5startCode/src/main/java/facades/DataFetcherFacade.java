@@ -8,6 +8,7 @@ package facades;
 import com.google.gson.Gson;
 import dtos.BoredDTO;
 import dtos.CatFactsDTO;
+import dtos.MyIPDTO;
 import dtos.SpaceDTO;
 import dtos.TrumpQuotesDTO;
 import java.io.IOException;
@@ -18,11 +19,11 @@ import utils.HttpUtils;
  * @author GRP 5
  */
 public class DataFetcherFacade {
-    
-    public DataFetcherFacade(){
-        
+
+    public DataFetcherFacade() {
+
     }
-    
+
     public BoredDTO getBoredDTO() throws IOException {
 
         Gson gson = new Gson();
@@ -31,7 +32,7 @@ public class DataFetcherFacade {
 
         return boredDTO;
     }
-    
+
     public CatFactsDTO getCatFactsDTO() throws IOException {
 
         Gson gson = new Gson();
@@ -40,7 +41,16 @@ public class DataFetcherFacade {
 
         return catFactsDTO;
     }
-    
+
+    public MyIPDTO getMyIPDTO() throws IOException {
+
+        Gson gson = new Gson();
+        String jasonString = HttpUtils.fetchData("https://api.ipify.org?format=json");
+        MyIPDTO myIPDTO = gson.fromJson(jasonString, MyIPDTO.class);
+
+        return myIPDTO;
+    }
+
     public SpaceDTO getSpaceDTO() throws IOException {
 
         Gson gson = new Gson();
@@ -49,7 +59,7 @@ public class DataFetcherFacade {
 
         return spaceDTO;
     }
-    
+
     public TrumpQuotesDTO getTrumpQuotesDTO() throws IOException {
 
         Gson gson = new Gson();
@@ -58,5 +68,5 @@ public class DataFetcherFacade {
 
         return trumpQuotesDTO;
     }
-    
+
 }

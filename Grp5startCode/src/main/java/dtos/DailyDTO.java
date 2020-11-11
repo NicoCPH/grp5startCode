@@ -15,13 +15,15 @@ public class DailyDTO {
     String boredType;
     String boredParticipants;
     String catMessage;
+    String myIP;
     String spaceNumber;
     String trumpMessage;
 
-    public DailyDTO(BoredDTO b, CatFactsDTO c, SpaceDTO s, TrumpQuotesDTO t) {
-        this.boredActivity = b.activity;
-        this.boredType = b.type;
-        this.boredParticipants = b.participants;
+    public DailyDTO(BoredDTO b, CatFactsDTO c, MyIPDTO m, SpaceDTO s, TrumpQuotesDTO t) {
+        this.boredActivity = b.getActivity();
+        this.boredType = b.getType();
+        this.boredParticipants = b.getParticipants();
+        this.myIP = m.getIp();
         this.catMessage = c.getFact();
         this.spaceNumber = s.getNumber();
         this.trumpMessage = t.getMessage();
