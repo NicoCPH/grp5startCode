@@ -5,8 +5,12 @@
  */
 package rest;
 
+import entities.User;
+import java.util.List;
 import javax.annotation.security.RolesAllowed;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -25,12 +29,12 @@ import utils.EMF_Creator;
  */
 @Path("user")
 public class UserResource {
-    
+
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
 
     @Context
     private UriInfo context;
-    
+
     @Context
     SecurityContext securityContext;
 
@@ -48,5 +52,20 @@ public class UserResource {
         String thisuser = securityContext.getUserPrincipal().getName();
         return "{\"msg\": \"Hello to User: " + thisuser + "\"}";
     }
-    
+
+    @Path("/userCount")
+    @GET
+    @RolesAllowed("user")
+    @Produces({MediaType.APPLICATION_JSON})
+    public String UserCount() {
+        EntityManager em = EMF.createEntityManager();
+        try {
+            TypedQuery<User> query = em.createQuery("select u from User u", entities.User.class);
+            List<User> users = query.getResultList();
+            return "[" + users.size() + "]";
+        } finally {
+            em.close();
+        }
+    }
+
 }

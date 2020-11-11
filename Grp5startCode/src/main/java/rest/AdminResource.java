@@ -5,8 +5,12 @@
  */
 package rest;
 
+import entities.User;
+import java.util.List;
 import javax.annotation.security.RolesAllowed;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -46,5 +50,20 @@ public class AdminResource {
     public String getFromAdmin() {
         String thisuser = securityContext.getUserPrincipal().getName();
         return "{\"msg\": \"Hello to (admin) User: " + thisuser + "\"}";
+    }
+
+    @Path("/userCount")
+    @GET
+    @RolesAllowed("admin")
+    @Produces({MediaType.APPLICATION_JSON})
+    public String UserCount() {
+        EntityManager em = EMF.createEntityManager();
+        try {
+            TypedQuery<User> query = em.createQuery("select u from User u", entities.User.class);
+            List<User> users = query.getResultList();
+            return "[" + users.size() + "]";
+        } finally {
+            em.close();
+        }
     }
 }
