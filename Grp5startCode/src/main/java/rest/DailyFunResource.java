@@ -39,17 +39,16 @@ public class DailyFunResource {
     public DailyFunResource() {
     }
 
-    @GET
+   @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getDailyFun() throws IOException {
 
-        BoredDTO boredDTO = FACADE.getBoredDTO();
         CatFactsDTO catFactsDTO = FACADE.getCatFactsDTO();
         MyIPDTO myIPDTO = FACADE.getMyIPDTO();
         SpaceDTO spaceDTO = FACADE.getSpaceDTO();
         TrumpQuotesDTO trumpQuotesDTO = FACADE.getTrumpQuotesDTO();
 
-        DailyDTO dailyDTO = new DailyDTO(boredDTO, catFactsDTO, myIPDTO, spaceDTO, trumpQuotesDTO);
+        DailyDTO dailyDTO = new DailyDTO(catFactsDTO, myIPDTO, spaceDTO, trumpQuotesDTO);
         String daily = GSON.toJson(dailyDTO);
         return daily;
     }

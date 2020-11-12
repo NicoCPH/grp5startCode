@@ -19,10 +19,10 @@ public class DailyDTO {
     String spaceNumber;
     String trumpMessage;
 
-    public DailyDTO(BoredDTO b, CatFactsDTO c, MyIPDTO m, SpaceDTO s, TrumpQuotesDTO t) {
-        this.boredActivity = b.getActivity();
-        this.boredType = b.getType();
-        this.boredParticipants = b.getParticipants();
+public DailyDTO(CatFactsDTO c, MyIPDTO m, SpaceDTO s, TrumpQuotesDTO t) {
+        this.boredActivity = "O-løb";
+        this.boredType = "Idræt";
+        this.boredParticipants = "Op til 50";
         this.myIP = m.getIp();
         this.catMessage = c.getFact();
         this.spaceNumber = s.getNumber();
