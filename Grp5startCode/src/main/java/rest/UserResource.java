@@ -67,5 +67,7 @@ public class UserResource {
             em.close();
         }
     }
+    
+    
 
 }

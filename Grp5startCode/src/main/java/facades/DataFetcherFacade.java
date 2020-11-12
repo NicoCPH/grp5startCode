@@ -6,12 +6,16 @@
 package facades;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import dtos.BoredDTO;
 import dtos.CatFactsDTO;
 import dtos.MyIPDTO;
+import dtos.PublicHolidaysDTO;
 import dtos.SpaceDTO;
 import dtos.TrumpQuotesDTO;
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect.Type;
+import java.util.Collection;
 import utils.HttpUtils;
 
 /**
@@ -68,5 +72,13 @@ public class DataFetcherFacade {
 
         return trumpQuotesDTO;
     }
+      public Collection<PublicHolidaysDTO> getPublicHolidaysDTO() throws IOException {
+        Gson gson = new Gson();
+        String jasonString = HttpUtils.fetchData("https://date.nager.at/api/v2/PublicHolidays/2020/DK");
+        java.lang.reflect.Type collectionType = new TypeToken<Collection<PublicHolidaysDTO>>(){}.getType();
+        Collection<PublicHolidaysDTO> enums = gson.fromJson(jasonString, collectionType);
+        return enums;
+    }
+    
 
 }

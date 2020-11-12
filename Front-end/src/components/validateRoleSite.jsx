@@ -5,7 +5,7 @@ import AdminNavigator from "./adminNavigator";
 
 const ValidateRoleSite = (props) => {
   const role = facade.getRoles();
-  console.log(role);
+
 
   if (role === "admin" && props.loggedIn) {
     return (
