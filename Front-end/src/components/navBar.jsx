@@ -32,16 +32,11 @@ const Header = (props) => {
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Brand as={Link} to="/">
-            CA-3 Gruppe 5
+           Nicolas Allesøe CA-3
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <NavItem href="/">
-                <Nav.Link as={Link} to="/">
-                  Home
-                </Nav.Link>
-              </NavItem>
               <NavItem href="/Readme">
                 <Nav.Link as={Link} to="/Readme">
                   Readme
@@ -56,9 +51,6 @@ const Header = (props) => {
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/Holidays">
                   Holidays
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Readme">
-                  Readme
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
